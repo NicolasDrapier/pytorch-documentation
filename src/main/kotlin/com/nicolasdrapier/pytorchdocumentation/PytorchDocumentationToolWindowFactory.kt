@@ -1,6 +1,7 @@
 package com.nicolasdrapier.pytorchdocumentation
 
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.util.IconLoader
 import com.intellij.openapi.wm.ToolWindow
 import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.content.ContentFactory
@@ -9,7 +10,11 @@ import java.awt.BorderLayout
 import javax.swing.JPanel
 import kotlin.jvm.internal.Intrinsics
 
-class MyToolWindowFactory : ToolWindowFactory {
+class PytorchDocumentationToolWindowFactory : ToolWindowFactory {
+//    @JvmField
+//    val icon = IconLoader.getIcon("/META-INF/pluginIcon.svg", javaClass)
+
+
     override fun createToolWindowContent(project: Project, toolWindow: ToolWindow) {
         Intrinsics.checkNotNullParameter(project, "project")
         Intrinsics.checkNotNullParameter(toolWindow, "toolWindow")
@@ -25,4 +30,9 @@ class MyToolWindowFactory : ToolWindowFactory {
         val content = contentFactory.createContent(webViewPanel, "", false)
         toolWindow.contentManager.addContent(content)
     }
+
+//    override fun init(toolWindow: ToolWindow) {
+//        toolWindow.setIcon(icon)
+//    }
 }
+
